@@ -1,0 +1,59 @@
+/** Login admin */
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.form-login {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border: 2px solid gray;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.form-login h2 {
+    color: grey;
+}
+
+.form-login .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login .input-group input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid grey;
+}
+
+.form-login .input-group label {
+    font-size: 16px;
+    color: gray;
+}
+
+.form-login button {
+    background-color: #17a2b8;
+    border: none;
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 9px;
+    margin-bottom: 26px;
+}
+
+.form-login button:hover {
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b;
+}
