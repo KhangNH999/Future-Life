@@ -11,18 +11,33 @@ class daily_job {
         $this->database = new Database();
     }
     // data daily job
-    public function show_daily_job($begin, $limit, $daily_job_name, $time_start) {
-        if ($daily_job_name != NULL) {
-            $query = "SELECT * FROM daily_job WHERE name_daily_job = '$daily_job_name' ORDER BY id DESC LIMIT $begin, $limit";
-        } else {
-            $query = "SELECT * FROM daily_job ORDER BY id DESC LIMIT $begin, $limit";
+    public function show_daily_job($begin, $limit, $id, $daily_job_name, $time_start) {
+        $query = "SELECT * FROM daily_job WHERE search_flg = 0 ";
+        if (!Empty($id)) {
+            $query .= "AND id = '$id' ";
         }
+        if (!Empty($daily_job_name)) {
+            $query .= "AND name_daily_job = '$daily_job_name' ";
+        } 
+        if (!Empty($time_start)) {
+            $query .= "AND date_start = '$time_start' ";
+        }
+        $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
         return $result; 
     }
     // get count daily job
-    public function get_count_daily_job() {
-        $query = "SELECT * FROM daily_job";
+    public function get_count_daily_job($id, $daily_job_name, $time_start) {
+        $query = "SELECT * FROM daily_job WHERE search_flg = 0";
+        if (!Empty($id)) {
+            $query .= " AND id = '$id'";
+        }
+        if (!Empty($daily_job_name)) {
+            $query .= " AND name_daily_job = '$daily_job_name'";
+        } 
+        if (!Empty($time_start)) {
+            $query .= " AND date_start = '$time_start'";
+        }
         $result = $this->database->select($query);
         return $result;
     }

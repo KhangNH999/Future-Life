@@ -15,7 +15,7 @@
         session_start();
     // logout admin
         $account_admin = new account_admin();
-        if ($_GET['action'] == 'logout'){
+        if (isset($_GET['action']) && $_GET['action'] == 'logout'){
             $logout_admin = $account_admin->logout_admin();
         }
     ?>

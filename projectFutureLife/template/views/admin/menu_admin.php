@@ -1,5 +1,5 @@
 <?php include("actor/admin/model/menu.php"); ?>
-<li class=<?php add_color_menu(1); ?>><a href="admin_cp.php?action=manage_daily_job&query=search"><i class="fa fa-check-square-o"></i>Quản lý công việc hàng ngày</a></li>
+<li class=<?php add_color_menu(1); ?>><a href="admin_cp.php?action=manage_daily_job&query=show"><i class="fa fa-check-square-o"></i>Quản lý công việc hàng ngày</a></li>
 <li class=<?php add_color_menu(2); ?>><a href="admin_cp.php?action=manage_cost&query=show"><i class="fa fa-list-alt"></i>Quản lý chi tiêu</a></li>
 <li class=<?php add_color_menu(3); ?>><a href="#"><i class="fa fa-bullhorn"></i>Quản lý những việc cần làm trong tương lai</a></li>
 <li class=<?php add_color_menu(4); ?>><a href="#"><i class="fa fa-bar-chart"></i>Biểu đồ</a></li>
