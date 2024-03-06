@@ -15,6 +15,8 @@
    echo "Quản lý công việc hàng ngày";
  } else if($function =='manage_daily_job' && $query == 'add') {
     echo "Quản lý công việc hàng ngày";
+ } else if($function =='manage_daily_job' && $query == 'search_page') {
+  echo "Quản lý công việc hàng ngày";
  } else if($function =='manage_cost' && $query == 'show') {      // manage cost
    echo "Quản lý chi tiêu";
  } else if($function =='manage_cost' && $query == 'add') {

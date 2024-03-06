@@ -220,3 +220,36 @@ ul.list-page li:hover {
 .form-search {
     background: #fff;
 }
+
+.form-search tr.input input{
+    width: 60%;
+}
+.form-search tr.submit .set-ml-306px{
+    margin-left: 306px;
+}
+.form-search tr.submit .clear-data{
+    background-color: #c7c4c4;
+    border: none;
+    color: #ffffff;
+    width: 19%;
+    padding: 8px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.form-search tr.submit .search-data{
+    background-color: #357ecb;
+    border: none;
+    color: #ffffff;
+    width: 20%;
+    padding: 8px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+}

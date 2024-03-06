@@ -7,15 +7,15 @@ if ($_SESSION['login_admin'] == 1) {
   } else {
     $function = '';
     $query = '';
-  }
-  if ($function == 'manage_daily_job' && $query == 'search') {             // daily job
-    include("template/views/admin/manage_daily_job/search_daily_job.php");
-  } else if($function =='manage_daily_job' && $query == 'add') {
+  }  
+  if($function =='manage_daily_job' && $query == 'show') {               // daily job
     include("template/views/admin/manage_daily_job/show_daily_job.php");
   } else if($function =='manage_daily_job' && $query == 'add') {
     include("template/views/admin/manage_daily_job/add_daily_job.php");
   } else if($function =='manage_daily_job' && $query == 'edit') {
     include("template/views/admin/manage_daily_job/edit_daily_job.php");
+  } else if($function =='manage_daily_job' && $query == 'search_page') {
+    include("template/views/admin/manage_daily_job/search_page_daily_job.php");
   } else if($function =='manage_cost' && $query == 'show') {             // cost life
     include("template/views/admin/manage_cost/show_cost.php");
   } else if($function =='manage_cost' && $query == 'add') {

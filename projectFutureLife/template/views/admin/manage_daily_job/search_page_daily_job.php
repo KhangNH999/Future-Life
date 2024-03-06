@@ -18,11 +18,7 @@
     $daily_job_name = "";
     $time_start = "";
     $daily_job = new daily_job();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $id = $_POST['id'];
-        $daily_job_name = $_POST['daily_job_name'];
-        $time_start = $_POST['time_start'];
-    } else if (isset($_GET['id']) && $_GET['id'] != "") {
+    if (isset($_GET['id']) && $_GET['id'] != "") {
         $id = $_GET['id'];
     } else if (isset($_GET['name']) && $_GET['name'] != "")  {
         $daily_job_name = $_GET['name'];
@@ -36,11 +32,7 @@
     $show_daily_job = $daily_job->show_daily_job($begin, $limit, $id, $daily_job_name, $time_start);
 
     // get count daily job
-    $row_daily_job = $daily_job->get_count_daily_job($id, $daily_job_name, $time_start);
-    $row_count = 0;
-    if ($row_daily_job != false) {
-        $row_count = $row_daily_job->num_rows;
-    }
+    $row_count = $daily_job->get_count_daily_job($id, $daily_job_name, $time_start)->num_rows;
 
     // Delete daily job
     if (isset($_GET['id_daily_job'])) {
@@ -49,24 +41,20 @@
     }
 
     // Value id
-    if (isset($_POST['id'])) {
-        $value_id = $_POST['id'];
-    } else if (isset($_GET['id'])) {
+    if (isset($_GET['id'])) {
         $value_id = $_GET['id'];
     } else {
         $value_id = '';
     }
 
     // Value daily job name
-    if (isset($_POST['daily_job_name'])) {
-        $value_daily_job_name = $_POST['daily_job_name'];
-    } else if (isset($_GET['name'])) {
+    if (isset($_GET['name'])) {
         $value_daily_job_name = $_GET['name'];
     } else {
         $value_daily_job_name = '';
     }
 ?>
-<form action="" method="post">
+<form action="admin_cp.php?action=manage_daily_job&query=show" method="post">
     <table class="form-search">
         <tr class="input">
             <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id" value="<?php echo $value_id?>"></td>
@@ -117,7 +105,6 @@
 
     <!-- Page daily job -->
     <?php
-    if( $row_count > 0 && $row_count > $limit) {
         $page = ceil( $row_count/ $limit);
     ?>
     <div class="page">
@@ -142,18 +129,14 @@
                         }
 
                     // Request id
-                    if (isset($_POST['id']) && $_POST['id'] != "") {
-                        $request_id = "&id=".$_POST['id'];
-                    } else if (isset($_GET['id']) && $_GET['id'] != "") {
+                    if (isset($_GET['id']) && $_GET['id'] != "") {
                         $request_id = "&id=".$_GET['id'];
                     } else {
                         $request_id = '';
                     }
 
                     // Request name
-                    if (isset($_POST['daily_job_name']) && $_POST['daily_job_name'] != "") {
-                        $request_name = "&name=".$_POST['daily_job_name'];
-                    } else if (isset($_GET['name']) && $_GET['name'] != "") {
+                    if (isset($_GET['name']) && $_GET['name'] != "") {
                         $request_name = "&name=".$_GET['name'];
                     } 
                      else {
@@ -167,7 +150,4 @@
             ?>
         </ul>
     </div>
-    <?php
-    }
-    ?>
 </div>
