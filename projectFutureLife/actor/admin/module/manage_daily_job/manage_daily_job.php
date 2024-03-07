@@ -14,13 +14,13 @@ class daily_job {
     public function show_daily_job($begin, $limit, $id, $daily_job_name, $time_start) {
         $query = "SELECT * FROM daily_job WHERE search_flg = 0 ";
         if (!Empty($id)) {
-            $query .= "AND id = '$id' ";
+            $query .= "AND id LIKE '%$id%' ";
         }
         if (!Empty($daily_job_name)) {
-            $query .= "AND name_daily_job = '$daily_job_name' ";
+            $query .= "AND name_daily_job LIKE '%$daily_job_name%' ";
         } 
         if (!Empty($time_start)) {
-            $query .= "AND date_start = '$time_start' ";
+            $query .= "AND date_start LIKE '%$time_start%' ";
         }
         $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
@@ -30,13 +30,13 @@ class daily_job {
     public function get_count_daily_job($id, $daily_job_name, $time_start) {
         $query = "SELECT * FROM daily_job WHERE search_flg = 0";
         if (!Empty($id)) {
-            $query .= " AND id = '$id'";
+            $query .= " AND id LIKE '%$id%'";
         }
         if (!Empty($daily_job_name)) {
-            $query .= " AND name_daily_job = '$daily_job_name'";
+            $query .= " AND name_daily_job LIKE '%$daily_job_name%'";
         } 
         if (!Empty($time_start)) {
-            $query .= " AND date_start = '$time_start'";
+            $query .= " AND date_start LIKE '%$time_start%'";
         }
         $result = $this->database->select($query);
         return $result;

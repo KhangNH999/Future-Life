@@ -26,6 +26,8 @@
         $id = $_GET['id'];
     } else if (isset($_GET['name']) && $_GET['name'] != "")  {
         $daily_job_name = $_GET['name'];
+    } else if (isset($_GET['time']) && $_GET['time'] != "")  {
+        $time_start = $_GET['time'];
     } else {
         $id = "";
         $daily_job_name = "";
@@ -65,26 +67,39 @@
     } else {
         $value_daily_job_name = '';
     }
+
+    // Value daily job name
+    if (isset($_POST['time_start'])) {
+        $value_time_start = $_POST['time_start'];
+    } else if (isset($_GET['time'])) {
+        $value_time_start = $_GET['time'];
+    } else {
+        $value_time_start = '';
+    }
 ?>
 <form action="" method="post">
     <table class="form-search">
         <tr class="input">
-            <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id" value="<?php echo $value_id?>"></td>
-            <td>Tên công việc&nbsp;&nbsp;<input type="text" name="daily_job_name" value="<?php echo $value_daily_job_name?>"></td>
+            <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id_daily_job" name="id" value="<?php echo $value_id ?>"></td>
+            <td>Tên công việc&nbsp;&nbsp;<input type="text" id="daily_job_name" name="daily_job_name" value="<?php echo $value_daily_job_name ?>"></td>
         </tr>
         <tr class="input">
-            <td>Ngày bắt đầu&nbsp;&nbsp;<input type="text" name="time_start" value=""></td>
+            <td>Ngày bắt đầu&nbsp;&nbsp;<input type="datetime-local" id="time_start" name="time_start" value="<?php echo $value_time_start ?>"></td>
         </tr>
         <tr class="submit">
             <td colspan="2">
-            <div class="set-ml-306px">
-                    <button class="clear-data" type="submit">Xóa</button>    
+            <div class="set-ml-37">
+                    <button class="clear-data" onclick="clear_input_daily_job()" type="submit">Xóa</button>    
                     <button class="search-data" name="button-search" type="submit">Tìm kiếm</button>
                 </div>  
             </td>
         </tr>
     </table>
 </form>
+<?php
+if ($row_count > 0) {
+?>
+<div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
 <div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form"><i class="fa fa-plus"></i> Thêm</a></div>
 <br>
 <br>
@@ -114,10 +129,17 @@
     }
         ?>
     </table>
+<?php 
+} else {
+?>
+<div class="message_warning"> Không có kết quả tìm kiếm, vui lòng tìm kiếm với từ khóa khác ! </div>
+<?php
+}
+?>
 
     <!-- Page daily job -->
     <?php
-    if( $row_count > 0 && $row_count > $limit) {
+    if ($row_count > 0 && $row_count > $limit) {
         $page = ceil( $row_count/ $limit);
     ?>
     <div class="page">
@@ -155,12 +177,21 @@
                         $request_name = "&name=".$_POST['daily_job_name'];
                     } else if (isset($_GET['name']) && $_GET['name'] != "") {
                         $request_name = "&name=".$_GET['name'];
-                    } 
-                     else {
+                    } else {
                         $request_name = '';
                     }
+
+                    // Request time start
+                    if (isset($_POST['time_start']) && $_POST['time_start'] != "") {
+                        $request_time = "&time=".$_POST['time_start'];
+                    } else if (isset($_GET['time']) && $_GET['time'] != "") {
+                        $request_time = "&time=".$_GET['time'];
+                    } else {
+                        $request_time = '';
+                    }
+
                     ?>
-                        href="admin_cp.php?action=manage_daily_job&query=search_page&page=<?php echo $i ?><?php echo $request_id ?><?php echo $request_name ?>"><?php echo $i ?></a>
+                        href="admin_cp.php?action=manage_daily_job&query=search_page&page=<?php echo $i ?><?php echo $request_id ?><?php echo $request_name ?><?php echo $request_time ?>"><?php echo $i ?></a>
                 </li>
             <?php
                 }
