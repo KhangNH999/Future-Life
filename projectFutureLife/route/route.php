@@ -22,6 +22,8 @@ if ($_SESSION['login_admin'] == 1) {
     include("template/views/admin/manage_cost/add_cost.php");
   } else if($function =='manage_cost' && $query == 'edit') {
     include("template/views/admin/manage_cost/edit_cost.php");
+  } else if($function =='manage_cost' && $query == 'search_page') {
+    include("template/views/admin/manage_cost/search_page_cost.php");
   } else {
     include("template/views/admin/manage_daily_job/show_daily_job.php");
   }

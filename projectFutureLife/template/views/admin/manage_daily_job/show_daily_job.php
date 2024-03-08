@@ -68,7 +68,7 @@
         $value_daily_job_name = '';
     }
 
-    // Value daily job name
+    // Value time start
     if (isset($_POST['time_start'])) {
         $value_time_start = $_POST['time_start'];
     } else if (isset($_GET['time'])) {

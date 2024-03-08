@@ -11,14 +11,39 @@ class cost_life {
         $this->database = new Database();
     }
     // data cost life
-    public function show_cost($begin, $limit) {
-        $query = "SELECT * FROM cost_life ORDER BY id DESC LIMIT $begin, $limit";
+    public function show_cost($begin, $limit, $id, $cost_name, $cost, $date_used) {
+        $query = "SELECT * FROM cost_life WHERE search_flg = 0 ";
+        if (!Empty($id)) {
+            $query .= "AND id LIKE '%$id%' ";
+        }
+        if (!Empty($cost_name)) {
+            $query .= "AND name LIKE '%$cost_name%' ";
+        } 
+        if (!Empty($cost)) {
+            $query .= "AND cost LIKE '%$cost%' ";
+        }
+        if (!Empty($date_used)) {
+            $query .= "AND date_used LIKE '%$date_used%' ";
+        }
+        $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
         return $result; 
     }
     // get count daily job
-    public function get_count_cost() {
-        $query = "SELECT * FROM cost_life";
+    public function get_count_cost($id, $cost_name, $cost, $date_used) {
+        $query = "SELECT * FROM cost_life WHERE search_flg = 0";
+        if (!Empty($id)) {
+            $query .= " AND id LIKE '%$id%'";
+        }
+        if (!Empty($cost_name)) {
+            $query .= " AND name LIKE '%$cost_name%'";
+        } 
+        if (!Empty($cost)) {
+            $query .= " AND cost LIKE '%$cost%'";
+        }
+        if (!Empty($date_used)) {
+            $query .= " AND date_used LIKE '%$date_used%'";
+        }
         $result = $this->database->select($query);
         return $result;
     }

@@ -25,3 +25,15 @@ function clear_input_daily_job() {
     name.value = '';
     time.value = '';
 }
+
+// clear input cost
+function clear_input_cost() {
+    var id = document.getElementById('id_cost');
+    var name = document.getElementById('cost_name');
+    var cost = document.getElementById('cost');
+    var time = document.getElementById('date_used');
+    id.value = '';
+    name.value = '';
+    cost.value = '';
+    time.value = '';
+}
