@@ -19,12 +19,7 @@
     $cost = "";
     $date_used = "";
     $cost_life = new cost_life();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $id = $_POST['id'];
-        $cost_name = $_POST['cost_name'];
-        $cost = $_POST['cost'];
-        $date_used = $_POST['date_used'];
-    } else if (isset($_GET['id']) && $_GET['id'] != "") {
+    if (isset($_GET['id']) && $_GET['id'] != "") {
         $id = $_GET['id'];
     } else if (isset($_GET['name']) && $_GET['name'] != "")  {
         $cost_name = $_GET['name'];
@@ -56,42 +51,34 @@
     }
 
     // Value id
-    if (isset($_POST['id'])) {
-        $value_id = $_POST['id'];
-    } else if (isset($_GET['id'])) {
+    if (isset($_GET['id'])) {
         $value_id = $_GET['id'];
     } else {
         $value_id = '';
     }
 
     // Value cost name
-    if (isset($_POST['cost_name'])) {
-        $value_cost_name = $_POST['cost_name'];
-    } else if (isset($_GET['name'])) {
+    if (isset($_GET['name'])) {
         $value_cost_name = $_GET['name'];
     } else {
         $value_cost_name = '';
     }
 
     // Value cost
-    if (isset($_POST['cost'])) {
-        $value_cost = $_POST['cost'];
-    } else if (isset($_GET['cost'])) {
+    if (isset($_GET['cost'])) {
         $value_cost = $_GET['cost'];
     } else {
         $value_cost = '';
     }
 
     // Value date used
-    if (isset($_POST['date_used'])) {
-        $value_date_used = $_POST['date_used'];
-    } else if (isset($_GET['time'])) {
+    if (isset($_GET['time'])) {
         $value_date_used = $_GET['time'];
     } else {
         $value_date_used = '';
     }
 ?>
-<form action="" method="post">
+<form action="admin_cp.php?action=manage_cost&query=show" method="post">
     <table class="form-search">
         <tr class="input">
             <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id_cost" name="id" value="<?php echo $value_id ?>"></td>
@@ -111,9 +98,6 @@
         </tr>
     </table>
 </form>
-<?php
-if ($row_count > 0) {
-?>
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
 <div class="button-add"><a href="admin_cp.php?action=manage_cost&query=add" class="button-add-form"><i class="fa fa-plus"></i>  Thêm</a></div>
 <br>
@@ -143,17 +127,9 @@ if ($row_count > 0) {
     }
         ?>
     </table>
-    <?php 
-} else {
-?>
-<div class="message_warning"> Không có kết quả tìm kiếm, vui lòng tìm kiếm với từ khóa khác ! </div>
-<?php
-}
-?>
 
     <!-- Page daily job -->
     <?php
-    if ($row_count > 0 && $row_count > $limit) {
         $page = ceil( $row_count/ $limit);
     ?>
     <div class="page">
@@ -178,36 +154,28 @@ if ($row_count > 0) {
                         } 
                     
                     // Request id
-                    if (isset($_POST['id']) && $_POST['id'] != "") {
-                        $request_id = "&id=".$_POST['id'];
-                    } else if (isset($_GET['id']) && $_GET['id'] != "") {
+                    if (isset($_GET['id']) && $_GET['id'] != "") {
                         $request_id = "&id=".$_GET['id'];
                     } else {
                         $request_id = '';
                     }
 
                     // Request name
-                    if (isset($_POST['cost_name']) && $_POST['cost_name'] != "") {
-                        $request_name = "&name=".$_POST['cost_name'];
-                    } else if (isset($_GET['name']) && $_GET['name'] != "") {
+                    if (isset($_GET['name']) && $_GET['name'] != "") {
                         $request_name = "&name=".$_GET['name'];
                     } else {
                         $request_name = '';
                     }
 
                     // Request cost
-                    if (isset($_POST['cost']) && $_POST['cost'] != "") {
-                        $request_cost = "&cost=".$_POST['cost'];
-                    } else if (isset($_GET['cost']) && $_GET['cost'] != "") {
+                    if (isset($_GET['cost']) && $_GET['cost'] != "") {
                         $request_cost = "&cost=".$_GET['cost'];
                     } else {
                         $request_cost = '';
                     }
 
                     // Request time
-                    if (isset($_POST['date_used']) && $_POST['date_used'] != "") {
-                        $request_time = "&time=".$_POST['date_used'];
-                    } else if (isset($_GET['time']) && $_GET['time'] != "") {
+                    if (isset($_GET['time']) && $_GET['time'] != "") {
                         $request_time = "&time=".$_GET['time'];
                     } else {
                         $request_time = '';
@@ -221,7 +189,4 @@ if ($row_count > 0) {
             ?>
         </ul>
     </div>
-    <?php
-    }
-    ?>
 </div>

@@ -23,5 +23,7 @@
   echo "Quản lý chi tiêu";
  } else if($function =='manage_cost' && $query == 'edit') {
   echo "Quản lý chi tiêu";
+ } else if($function =='manage_cost' && $query == 'search_page') {
+  echo "Quản lý chi tiêu";
  }
 ?>
