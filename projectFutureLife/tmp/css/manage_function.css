@@ -106,8 +106,8 @@ td {
     font-weight: bold;
     text-align: center;
     border: none;
-    min-width: 100px;
-    border-radius: 9px;
+    min-width: 85px;
+    border-radius: 5px;
     font-size: 18px;
     line-height: 28px;
     color: #fff;
@@ -119,9 +119,25 @@ td {
 .button-add-form:hover {
     color: #fff;
     background-color: #138496;
-    border-color: #117a8b;
 }
 
-.button-add-form i.fa.fa-plus {
-    font-size: 14px;
+/** Button export excel */
+.button-export-excel {
+    background-color: #2ca12c;
+    border: none;
+    color: #fff;
+    line-height: 0;
+    height: 30px;
+    min-width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    float: right;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.button-export-excel:hover {
+    color: #fff;
+    background-color: #248624;
 }

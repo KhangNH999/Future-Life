@@ -23,7 +23,8 @@ class cost_life {
             $query .= "AND cost LIKE '%$cost%' ";
         }
         if (!Empty($date_used)) {
-            $query .= "AND date_used LIKE '%$date_used%' ";
+            $formatted_date = date('Y-m-d H:i:s', strtotime($date_used));
+            $query .= "AND date_used = '$formatted_date' ";
         }
         $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
@@ -42,7 +43,8 @@ class cost_life {
             $query .= " AND cost LIKE '%$cost%'";
         }
         if (!Empty($date_used)) {
-            $query .= " AND date_used LIKE '%$date_used%'";
+            $formatted_date = date('Y-m-d H:i:s', strtotime($date_used));
+            $query .= " AND date_used = '$formatted_date' ";
         }
         $result = $this->database->select($query);
         return $result;
