@@ -20,7 +20,8 @@ class daily_job {
             $query .= "AND name_daily_job LIKE '%$daily_job_name%' ";
         } 
         if (!Empty($time_start)) {
-            $query .= "AND date_start LIKE '%$time_start%' ";
+            $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
+            $query .= "AND date_start = '$formatted_date' ";
         }
         $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
@@ -36,7 +37,8 @@ class daily_job {
             $query .= " AND name_daily_job LIKE '%$daily_job_name%'";
         } 
         if (!Empty($time_start)) {
-            $query .= " AND date_start LIKE '%$time_start%'";
+            $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
+            $query .= " AND date_start = '$formatted_date' ";
         }
         $result = $this->database->select($query);
         return $result;

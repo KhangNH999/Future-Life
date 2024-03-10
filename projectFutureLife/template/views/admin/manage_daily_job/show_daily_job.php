@@ -18,7 +18,7 @@
     $daily_job_name = "";
     $time_start = "";
     $daily_job = new daily_job();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['button-search'])) {
         $id = $_POST['id'];
         $daily_job_name = $_POST['daily_job_name'];
         $time_start = $_POST['time_start'];
@@ -100,7 +100,10 @@
 if ($row_count > 0) {
 ?>
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
-<div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form"><i class="fa fa-plus"></i> Thêm</a></div>
+<div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form">Thêm</a></div>
+<form action="" method="post">
+    <div><button class="button-export-excel" type="submit" name="button-export-excel-daily_cost">Xuất Excel</a></div>
+</form>
 <br>
 <br>
 <div class="manage_table">
