@@ -25,5 +25,7 @@
   echo "Quản lý chi tiêu";
  } else if($function =='manage_cost' && $query == 'search_page') {
   echo "Quản lý chi tiêu";
+ } else if($function =='download_file' && $query == 'show') {      // download file
+  echo "Nhật ký tải xuống gần đây";
  }
 ?>

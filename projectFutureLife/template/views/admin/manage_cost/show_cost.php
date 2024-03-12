@@ -94,7 +94,7 @@
 
     // export file cost
     $export_file = new export_file_cost();
-        if (isset($_POST['button-export-excel-cost'])) {
+    if (isset($_POST['button-export-excel-cost'])) {
         // Value id export
         if (isset($_POST['id'])) {
             $value_id_export = $_POST['id'];
