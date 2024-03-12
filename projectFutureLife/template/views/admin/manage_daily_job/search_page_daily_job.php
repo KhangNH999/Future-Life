@@ -1,4 +1,5 @@
 <?php include 'actor/admin/module/manage_daily_job/manage_daily_job.php' ?>
+<?php include 'actor/admin/export_file/manage_daily_job.php' ?>
 <?php
     // page daily job
     $limit = 10;
@@ -62,6 +63,38 @@
     } else {
         $value_time_start = '';
     }
+
+    // export file cost
+    $export_file = new export_file_daily_job();
+        if (isset($_POST['button-export-excel-daily-job'])) {
+        // Value id export
+        if (isset($_POST['id'])) {
+            $value_id_export = $_POST['id'];
+        } else if (isset($_GET['id'])) {
+            $value_id_export = $_GET['id'];
+        } else {
+            $value_id_export = '';
+        }
+
+        // Value daily job name export
+        if (isset($_POST['daily_job_name'])) {
+            $value_daily_job_name_export = $_POST['daily_job_name'];
+        } else if (isset($_GET['name'])) {
+            $value_daily_job_name_export = $_GET['name'];
+        } else {
+            $value_daily_job_name_export = '';
+        }
+
+        // Value time export
+        if (isset($_POST['time_start'])) {
+            $value_time_export = $_POST['time_start'];
+        } else if (isset($_GET['time'])) {
+            $value_time_export = $_GET['time'];
+        } else {
+            $value_time_export = '';
+        }
+        $export = $export_file->export_file($value_id_export, $value_daily_job_name_export, $value_time_export);
+    }
 ?>
 <form action="admin_cp.php?action=manage_daily_job&query=show" method="post">
     <table class="form-search">
@@ -84,6 +117,12 @@
 </form>
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
 <div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form"><i class="fa fa-plus"></i> Thêm</a></div>
+<form action="" method="post">
+    <input type="hidden" id="id_daily_job" name="id" value="<?php echo $value_id ?>">
+    <input type="hidden" id="daily_job_name" name="daily_job_name" value="<?php echo $value_daily_job_name ?>">
+    <input type="hidden" id="time_start" name="time_start" value="<?php echo $value_time_start ?>">
+    <div><button class="button-export-excel" type="submit" name="button-export-excel-daily-job">Xuất Excel</a></div>
+</form>
 <br>
 <br>
 <div class="manage_table">

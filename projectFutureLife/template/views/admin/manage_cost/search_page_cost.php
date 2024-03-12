@@ -1,4 +1,5 @@
 <?php include 'actor/admin/module/manage_cost/manage_cost.php' ?>
+<?php include 'actor/admin/export_file/manage_cost.php' ?>
 <?php
     // page daily job
     $limit = 10;
@@ -77,6 +78,47 @@
     } else {
         $value_date_used = '';
     }
+
+    // export file cost
+    $export_file = new export_file_cost();
+    if (isset($_POST['button-export-excel-cost'])) {
+        // Value id export
+        if (isset($_POST['id'])) {
+            $value_id_export = $_POST['id'];
+        } else if (isset($_GET['id'])) {
+            $value_id_export = $_GET['id'];
+        } else {
+            $value_id_export = '';
+        }
+
+        // Value cost name export
+        if (isset($_POST['cost_name'])) {
+            $value_cost_name_export = $_POST['cost_name'];
+        } else if (isset($_GET['name'])) {
+            $value_cost_name_export = $_GET['name'];
+        } else {
+            $value_cost_name_export = '';
+        }
+
+        // Value cost export
+        if (isset($_POST['cost'])) {
+            $value_cost_export = $_POST['cost'];
+        } else if (isset($_GET['cost'])) {
+            $value_cost_export = $_GET['cost'];
+        } else {
+            $value_cost_export = '';
+        }
+
+        // Value date used export
+        if (isset($_POST['date_used'])) {
+            $value_date_used_export = $_POST['date_used'];
+        } else if (isset($_GET['time'])) {
+            $value_date_used_export = $_GET['time'];
+        } else {
+            $value_date_used_export = '';
+        }
+        $export = $export_file->export_file($value_id_export, $value_cost_name_export, $value_cost_export, $value_date_used_export);
+    }
 ?>
 <form action="admin_cp.php?action=manage_cost&query=show" method="post">
     <table class="form-search">
@@ -100,6 +142,13 @@
 </form>
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
 <div class="button-add"><a href="admin_cp.php?action=manage_cost&query=add" class="button-add-form"><i class="fa fa-plus"></i>  Thêm</a></div>
+<form action="" method="post">
+    <input type="hidden" id="id_cost" name="id" value="<?php echo $value_id ?>">
+    <input type="hidden" id="cost_name" name="cost_name" value="<?php echo $value_cost_name ?>">
+    <input type="hidden" id="cost" name="cost" value="<?php echo $value_cost ?>">
+    <input type="hidden" id="date_used" name="date_used" value="<?php echo $value_date_used ?>">
+    <div><button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</a></div>
+</form>
 <br>
 <div class="manage_table">
     <table>
