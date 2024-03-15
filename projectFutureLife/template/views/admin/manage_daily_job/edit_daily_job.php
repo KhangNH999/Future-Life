@@ -22,9 +22,9 @@
       <form action="" method="post"> 
         <div class="input-group">
             <label for="daily_job">Tên công việc</label>
-            <input type="text" name="daily_job_name" value="<?php echo $result['name_daily_job'] ?>">
+            <input type="text" name="daily_job_name" value="<?php echo $result['daily_job_name'] ?>">
             <label for="date_time">Ngày bắt đầu</label>
-            <input type="datetime-local" name="time_start" value="<?php echo $result['date_start'] ?>">
+            <input type="datetime-local" name="time_start" value="<?php echo $result['time_start'] ?>">
         </div>
         <button type="submit">Lưu thông tin</button>
       </form> 

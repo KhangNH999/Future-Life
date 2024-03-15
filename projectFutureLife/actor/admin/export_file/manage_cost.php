@@ -22,7 +22,7 @@ class export_file_cost {
             $query .= "AND id LIKE '%$id%' ";
         }
         if (!Empty($cost_name)) {
-            $query .= "AND name LIKE '%$cost_name%' ";
+            $query .= "AND cost_name LIKE '%$cost_name%' ";
         } 
         if (!Empty($cost)) {
             $query .= "AND cost LIKE '%$cost%' ";
@@ -84,7 +84,7 @@ class export_file_cost {
             // set row
             $sheet->setCellValue('A'.$row_count, $number_count);
             $sheet->setCellValue('B'.$row_count, $row['id']);
-            $sheet->setCellValue('C'.$row_count, $row['name']);
+            $sheet->setCellValue('C'.$row_count, $row['cost_name']);
             $sheet->setCellValue('D'.$row_count, number_format($row['cost'], 0, '.', ',') . ' ₫');
             $sheet->setCellValue('E'.$row_count, $row['date_used']);
             // boder
@@ -102,7 +102,7 @@ class export_file_cost {
         }
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 		$writer->setOffice2003Compatibility(true);
-		$file_name = "tmp/download/excel/"."cost_file".time().".xlsx";
+		$file_name = "tmp/download/excel/cost/"."cost_file".time().".xlsx";
 		$writer->save($file_name);
 		header("location:".$file_name);
     }

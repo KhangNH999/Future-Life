@@ -134,7 +134,8 @@
 <?php 
 if (isset($_POST['button-export-excel-daily-job'])) {
 ?>
-    <div class="message_warning"> Tải xuống thành công <a href="admin_cp.php?action=download_file&query=show"> Nhấn vào </a></div>
+    <div class="message_success"> Xuất dữ liệu excel thành công. <a href="admin_cp.php?action=download_file&query=show">Vui lòng nhấn vào đây để tải file</a></div>
+    <br>
 <?php
 }
 ?>
@@ -166,8 +167,8 @@ if ($row_count > 0) {
         ?>
         <tr>
             <td><?php echo $result['id'] ?></td>
-            <td><?php echo $result['name_daily_job'] ?></td>
-            <td><?php echo $result['date_start'] ?></td>
+            <td><?php echo $result['daily_job_name'] ?></td>
+            <td><?php echo $result['time_start'] ?></td>
             <td><a href="admin_cp.php?action=manage_daily_job&query=edit&id_daily_job=<?php echo $result['id'] ?>"><i
                         id="pencil" class="fa fa-pencil"></i></a> <a
                     href="admin_cp.php?action=manage_daily_job&query=show&id_daily_job=<?php echo $result['id'] ?>"

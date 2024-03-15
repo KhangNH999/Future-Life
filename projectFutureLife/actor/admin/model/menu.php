@@ -23,6 +23,8 @@ function add_color_menu($menu_number) {
       echo "active";
     } else if ($function =='manage_cost' && $query == 'search_page' && $menu_number == 2) {
       echo "active";
+    } else if ($function =='download_file' && $query == 'show' && $menu_number == 5) {            // download file
+      echo "active";
     }
 }
 ?>

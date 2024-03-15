@@ -23,7 +23,7 @@
       <form action="" method="post"> 
         <div class="input-group">
             <label for="cost_name">Tên chi tiêu</label>
-            <input type="text" name="cost_name" value="<?php echo $result['name'] ?>">
+            <input type="text" name="cost_name" value="<?php echo $result['cost_name'] ?>">
             <label for="cost">Phí bỏ ra</label>
             <input type="text" name="cost" value="<?php echo $result['cost'] ?>">
             <label for="date_used">Ngày sử dụng</label>

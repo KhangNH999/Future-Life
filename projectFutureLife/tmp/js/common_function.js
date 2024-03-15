@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// message success
+document.addEventListener("DOMContentLoaded", function () {
+    var warningMessage = document.querySelector('.message_success');
+    requestAnimationFrame(function () {
+        warningMessage.style.opacity = 1;
+    });
+});
+
 // clear input daily job
 function clear_input_daily_job() {
     var id = document.getElementById('id_daily_job');

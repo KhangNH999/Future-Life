@@ -17,7 +17,7 @@ class cost_life {
             $query .= "AND id LIKE '%$id%' ";
         }
         if (!Empty($cost_name)) {
-            $query .= "AND name LIKE '%$cost_name%' ";
+            $query .= "AND cost_name LIKE '%$cost_name%' ";
         } 
         if (!Empty($cost)) {
             $query .= "AND cost LIKE '%$cost%' ";
@@ -37,7 +37,7 @@ class cost_life {
             $query .= " AND id LIKE '%$id%'";
         }
         if (!Empty($cost_name)) {
-            $query .= " AND name LIKE '%$cost_name%'";
+            $query .= " AND cost_name LIKE '%$cost_name%'";
         } 
         if (!Empty($cost)) {
             $query .= " AND cost LIKE '%$cost%'";
@@ -55,19 +55,19 @@ class cost_life {
         $result = $this->database->select($query);
         return $result;
     }
-    //insert cost
+    // insert cost
     public function insert_cost($cost_name, $cost, $date_used) {
-        $query = "INSERT INTO cost_life(name, cost, date_used) VALUES ('$cost_name', '$cost', '$date_used')";
+        $query = "INSERT INTO cost_life(cost_name, cost, date_used) VALUES ('$cost_name', '$cost', '$date_used')";
         $result = $this->database->insert($query);
         header('Location: admin_cp.php?action=manage_cost&query=show');
     }
-    //update cost
+    // update cost
     public function update_cost($cost_name, $cost, $date_used, $id) {
-        $query = "UPDATE cost_life SET name = '$cost_name', cost = '$cost', date_used = '$date_used' WHERE id = '$id'";
-        $result = $this->database->delete($query);
+        $query = "UPDATE cost_life SET cost_name = '$cost_name', cost = '$cost', date_used = '$date_used' WHERE id = '$id'";
+        $result = $this->database->update($query);
         header('Location: admin_cp.php?action=manage_cost&query=show');
     }
-    //delete cost
+    // delete cost
     public function delete_cost($id) {
         $query = "DELETE FROM cost_life WHERE id = '$id'";
         $result = $this->database->delete($query);
