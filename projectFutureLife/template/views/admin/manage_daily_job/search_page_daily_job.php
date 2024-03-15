@@ -139,8 +139,8 @@
         ?>
         <tr>
             <td><?php echo $result['id'] ?></td>
-            <td><?php echo $result['name_daily_job'] ?></td>
-            <td><?php echo $result['date_start'] ?></td>
+            <td><?php echo $result['daily_job_name'] ?></td>
+            <td><?php echo $result['time_start'] ?></td>
             <td><a href="admin_cp.php?action=manage_daily_job&query=edit&id_daily_job=<?php echo $result['id'] ?>"><i
                         id="pencil" class="fa fa-pencil"></i></a> <a
                     href="admin_cp.php?action=manage_daily_job&query=show&id_daily_job=<?php echo $result['id'] ?>"

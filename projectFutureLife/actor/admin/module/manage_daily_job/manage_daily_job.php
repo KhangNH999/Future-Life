@@ -17,11 +17,11 @@ class daily_job {
             $query .= "AND id LIKE '%$id%' ";
         }
         if (!Empty($daily_job_name)) {
-            $query .= "AND name_daily_job LIKE '%$daily_job_name%' ";
+            $query .= "AND daily_job_name LIKE '%$daily_job_name%' ";
         } 
         if (!Empty($time_start)) {
             $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
-            $query .= "AND date_start = '$formatted_date' ";
+            $query .= "AND time_start = '$formatted_date' ";
         }
         $query .= " ORDER BY id DESC LIMIT $begin, $limit";
         $result = $this->database->select($query);
@@ -34,11 +34,11 @@ class daily_job {
             $query .= " AND id LIKE '%$id%'";
         }
         if (!Empty($daily_job_name)) {
-            $query .= " AND name_daily_job LIKE '%$daily_job_name%'";
+            $query .= " AND daily_job_name LIKE '%$daily_job_name%'";
         } 
         if (!Empty($time_start)) {
             $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
-            $query .= " AND date_start = '$formatted_date' ";
+            $query .= " AND time_start = '$formatted_date' ";
         }
         $result = $this->database->select($query);
         return $result;
@@ -49,19 +49,19 @@ class daily_job {
         $result = $this->database->select($query);
         return $result;
     }
-    //insert daily job
+    // insert daily job
     public function insert_daily_job($daily_job_name, $time_start) {
-        $query = "INSERT INTO daily_job(name_daily_job, date_start) VALUES ('$daily_job_name', '$time_start')";
+        $query = "INSERT INTO daily_job(daily_job_name, time_start) VALUES ('$daily_job_name', '$time_start')";
         $result = $this->database->insert($query);
         header('Location: admin_cp.php?action=manage_daily_job&query=show');
     }
-    //update daily job
+    // update daily job
     public function update_daily_job($daily_job_name, $time_start, $id) {
-        $query = "UPDATE daily_job SET name_daily_job = '$daily_job_name', date_start = '$time_start' WHERE id = '$id'";
-        $result = $this->database->delete($query);
+        $query = "UPDATE daily_job SET daily_job_name = '$daily_job_name', time_start = '$time_start' WHERE id = '$id'";
+        $result = $this->database->update($query);
         header('Location: admin_cp.php?action=manage_daily_job&query=show');
     }
-     //delete daily job
+    // delete daily job
     public function delete_daily_job($id) {
         $query = "DELETE FROM daily_job WHERE id = '$id'";
         $result = $this->database->delete($query);

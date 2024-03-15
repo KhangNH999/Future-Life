@@ -28,6 +28,21 @@ body {
     transition: opacity 0.8s ease-in-out;
 }
 
+/** message sucess */
+.message_success {
+    border: 1px solid #2ebb00;
+    padding: 11px;
+    background-color: #d8ffb4;
+    color: forestgreen;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.message_success a {
+    color: coral;
+}
+
 /** count records */
 .count_records {
     font-size: 18px;

@@ -165,7 +165,7 @@
         ?>
         <tr>
             <td><?php echo $result['id'] ?></td>
-            <td><?php echo $result['name'] ?></td>
+            <td><?php echo $result['cost_name'] ?></td>
             <td><?php echo number_format($result['cost'], 0, '.', ',') . ' ₫'; ?></td>
             <td><?php echo $result['date_used'] ?></td>
             <td><a href="admin_cp.php?action=manage_cost&query=edit&id_cost=<?php echo $result['id'] ?>"><i id ="pencil" class="fa fa-pencil"></i></a> <a href="admin_cp.php?action=manage_cost&query=show&id_cost=<?php echo $result['id'] ?>" onclick="return confirm_delete(event);"><i
