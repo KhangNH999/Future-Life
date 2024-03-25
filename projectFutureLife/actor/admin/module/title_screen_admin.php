@@ -9,23 +9,31 @@
  }
  if ($function == 'manage_daily_job' && $query == 'show') {      // manage daily job
    echo "Quản lý công việc hàng ngày";
- } else if($function =='manage_daily_job' && $query == 'search') {
+ } else if ($function =='manage_daily_job' && $query == 'search') {
    echo "Quản lý công việc hàng ngày";
- } else if($function =='manage_daily_job' && $query == 'edit') {
+ } else if ($function =='manage_daily_job' && $query == 'edit') {
    echo "Quản lý công việc hàng ngày";
- } else if($function =='manage_daily_job' && $query == 'add') {
+ } else if ($function =='manage_daily_job' && $query == 'add') {
     echo "Quản lý công việc hàng ngày";
- } else if($function =='manage_daily_job' && $query == 'search_page') {
+ } else if ($function =='manage_daily_job' && $query == 'search_page') {
   echo "Quản lý công việc hàng ngày";
- } else if($function =='manage_cost' && $query == 'show') {      // manage cost
+ } else if ($function =='manage_cost' && $query == 'show') {      // manage cost
    echo "Quản lý chi tiêu";
- } else if($function =='manage_cost' && $query == 'add') {
+ } else if ($function =='manage_cost' && $query == 'add') {
   echo "Quản lý chi tiêu";
- } else if($function =='manage_cost' && $query == 'edit') {
+ } else if ($function =='manage_cost' && $query == 'edit') {
   echo "Quản lý chi tiêu";
- } else if($function =='manage_cost' && $query == 'search_page') {
+ } else if ($function =='manage_cost' && $query == 'search_page') {
   echo "Quản lý chi tiêu";
- } else if($function =='download_file' && $query == 'show') {      // download file
+ } else if ($function =='download_file' && $query == 'show') {      // download file
   echo "Nhật ký tải xuống gần đây";
+ } else if ($function =='manage_future_plan' && $query == 'show') {  // manage future plan
+  echo "Quản lý dự định tương lai";
+ } else if ($function =='manage_future_plan' && $query == 'add') {
+  echo "Quản lý dự định tương lai";
+ } else if ($function =='manage_future_plan' && $query == 'edit') {
+  echo "Quản lý dự định tương lai";
+ } else if ($function =='manage_future_plan' && $query == 'search_page') {
+  echo "Quản lý dự định tương lai";
  }
 ?>

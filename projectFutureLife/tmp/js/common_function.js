@@ -34,6 +34,16 @@ function clear_input_daily_job() {
     time.value = '';
 }
 
+// clear input daily job
+function clear_input_future_plan() {
+    var id = document.getElementById('id_future_plan');
+    var name = document.getElementById('future_plan_name');
+    var time = document.getElementById('time_start');
+    id.value = '';
+    name.value = '';
+    time.value = '';
+}
+
 // clear input cost
 function clear_input_cost() {
     var id = document.getElementById('id_cost');

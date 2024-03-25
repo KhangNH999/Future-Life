@@ -40,12 +40,16 @@ td {
 }
 
 /** icon table */
-.manage_table #pencil {
-    color: #f07607;
+.manage_table td a {
+    padding: 6px 6px 5px 6px;
+    background-color: #20cbff;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
-
-.manage_table #trash {
-    color: red;
+.manage_table td a.trash {
+    background-color: #ff9c9c;
 }
 
 /** form */
