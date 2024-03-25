@@ -1,7 +1,7 @@
-<?php include 'actor/admin/module/manage_daily_job/manage_daily_job.php' ?>
-<?php include 'actor/admin/export_file/manage_daily_job.php' ?>
+<?php include 'actor/admin/module/manage_future_plan/manage_future_plan.php' ?>
+<?php include 'actor/admin/export_file/manage_future_plan.php' ?>
 <?php
-    // page daily job
+    // page future plan
     $limit = 10;
     if (isset($_GET['page'])) {
         $page_get = $_GET['page'];
@@ -14,14 +14,14 @@
         $begin = ($page_get * $limit) - $limit;
     }
 
-    // show daily job
+    // show future plan
     $id = "";
-    $daily_job_name = "";
+    $future_plan_name = "";
     $time_start = "";
-    $daily_job = new daily_job();
+    $future_plan = new future_plan();
     if (isset($_POST['button-search'])) {
         $id = $_POST['id'];
-        $daily_job_name = $_POST['daily_job_name'];
+        $daily_job_name = $_POST['future_plan_name'];
         $time_start = $_POST['time_start'];
     } else if (isset($_GET['id']) && $_GET['id'] != "") {
         $id = $_GET['id'];
@@ -31,24 +31,24 @@
         $time_start = $_GET['time'];
     } else {
         $id = "";
-        $daily_job_name = "";
+        $future_plan_name = "";
         $time_start = "";
     }
 
-    // show daily job
-    $show_daily_job = $daily_job->show_daily_job($begin, $limit, $id, $daily_job_name, $time_start);
+    // show future plan
+    $show_future_plan = $future_plan->show_future_plan($begin, $limit, $id, $future_plan_name, $time_start);
 
-    // get count daily job
-    $row_daily_job = $daily_job->get_count_daily_job($id, $daily_job_name, $time_start);
+    // get count future plan
+    $row_future_plan = $future_plan->get_count_future_plan($id, $future_plan_name, $time_start);
     $row_count = 0;
-    if ($row_daily_job != false) {
-        $row_count = $row_daily_job->num_rows;
+    if ($row_future_plan != false) {
+        $row_count = $row_future_plan->num_rows;
     }
 
-    // Delete daily job
-    if (isset($_GET['id_daily_job'])) {
-        $id = $_GET['id_daily_job'];
-        $delete_daily_job = $daily_job->delete_daily_job($id);
+    // Delete future plan
+    if (isset($_GET['id_future_plan'])) {
+        $id = $_GET['id_future_plan'];
+        $delete_future_plan = $future_plan->delete_future_plan($id);
     }
 
     // Value id
@@ -60,13 +60,13 @@
         $value_id = '';
     }
 
-    // Value daily job name
-    if (isset($_POST['daily_job_name'])) {
-        $value_daily_job_name = $_POST['daily_job_name'];
+    // Value future plan name
+    if (isset($_POST['future_plan_name'])) {
+        $value_future_plan_name = $_POST['future_plan_name'];
     } else if (isset($_GET['name'])) {
-        $value_daily_job_name = $_GET['name'];
+        $value_future_plan_name = $_GET['name'];
     } else {
-        $value_daily_job_name = '';
+        $value_future_plan_name = '';
     }
 
     // Value time start
@@ -79,8 +79,8 @@
     }
 
     // export file cost
-    $export_file = new export_file_daily_job();
-    if (isset($_POST['button-export-excel-daily-job'])) {
+    $export_file = new export_file_future_plan();
+    if (isset($_POST['button-export-excel-future-plan'])) {
         // Value id export
         if (isset($_POST['id'])) {
             $value_id_export = $_POST['id'];
@@ -90,13 +90,13 @@
             $value_id_export = '';
         }
 
-        // Value daily job name export
-        if (isset($_POST['daily_job_name'])) {
-            $value_daily_job_name_export = $_POST['daily_job_name'];
+        // Value future plan name export
+        if (isset($_POST['future_plan_name'])) {
+            $value_future_plan_name_export = $_POST['future_plan_name'];
         } else if (isset($_GET['name'])) {
-            $value_daily_job_name_export = $_GET['name'];
+            $value_future_plan_name_export = $_GET['name'];
         } else {
-            $value_daily_job_name_export = '';
+            $value_future_plan_name_export = '';
         }
 
         // Value time export
@@ -107,14 +107,14 @@
         } else {
             $value_time_export = '';
         }
-        $export = $export_file->export_file($value_id_export, $value_daily_job_name_export, $value_time_export);
+        $export = $export_file->export_file($value_id_export, $value_future_plan_name_export, $value_time_export);
     }
 ?>
 <form action="" method="post">
     <table class="form-search">
         <tr class="input">
-            <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id_daily_job" name="id" value="<?php echo $value_id ?>"></td>
-            <td>Tên công việc&nbsp;&nbsp;<input type="text" id="daily_job_name" name="daily_job_name" value="<?php echo $value_daily_job_name ?>"></td>
+            <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id_future_plan" name="id" value="<?php echo $value_id ?>"></td>
+            <td>Tên công việc&nbsp;&nbsp;<input type="text" id="future_plan_name" name="future_plan_name" value="<?php echo $value_future_plan_name ?>"></td>
         </tr>
         <tr class="input">
             <td>Ngày bắt đầu&nbsp;&nbsp;<input type="datetime-local" id="time_start" name="time_start" value="<?php echo $value_time_start ?>"></td>
@@ -122,7 +122,7 @@
         <tr class="submit">
             <td colspan="2">
             <div class="set-ml-37">
-                    <button class="clear-data" onclick="clear_input_daily_job()" type="submit">Xóa</button>    
+                    <button class="clear-data" onclick="clear_input_future_plan()" type="submit">Xóa</button>    
                     <button class="search-data" name="button-search" type="submit">Tìm kiếm</button>
                 </div>  
             </td>
@@ -132,7 +132,7 @@
 
 <!-- message success download file excel -->
 <?php 
-if (isset($_POST['button-export-excel-daily-job'])) {
+if (isset($_POST['button-export-excel-future-plan'])) {
 ?>
     <div class="message_success"> Xuất dữ liệu excel thành công. <a href="admin_cp.php?action=download_file&query=show">Vui lòng nhấn vào đây để tải file</a></div>
     <br>
@@ -144,12 +144,12 @@ if (isset($_POST['button-export-excel-daily-job'])) {
 if ($row_count > 0) {
 ?>
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
-<div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form">Thêm</a></div>
+<div class="button-add"><a href="admin_cp.php?action=manage_future_plan&query=add" class="button-add-form">Thêm</a></div>
 <form action="" method="post">
-    <input type="hidden" id="id_daily_job" name="id" value="<?php echo $value_id ?>">
-    <input type="hidden" id="daily_job_name" name="daily_job_name" value="<?php echo $value_daily_job_name ?>">
+    <input type="hidden" id="id_future_plan" name="id" value="<?php echo $value_id ?>">
+    <input type="hidden" id="future_plan_name" name="future_plan_name" value="<?php echo $value_future_plan_name ?>">
     <input type="hidden" id="time_start" name="time_start" value="<?php echo $value_time_start ?>">
-    <div><button class="button-export-excel" type="submit" name="button-export-excel-daily-job">Xuất Excel</a></div>
+    <div><button class="button-export-excel" type="submit" name="button-export-excel-future-plan">Xuất Excel</a></div>
 </form>
 <br>
 <br>
@@ -157,21 +157,21 @@ if ($row_count > 0) {
     <table>
         <tr>
             <th>Id</th>
-            <th>Tên công việc hàng ngày</th>
+            <th>Tên dự định tương lai</th>
             <th>Ngày bắt đầu</th>
             <th>Chức năng</th>
         </tr>
         <?php
-    if ($show_daily_job) {
-        while($result = $show_daily_job->fetch_assoc()){
+    if ($show_future_plan) {
+        while($result = $show_future_plan->fetch_assoc()){
         ?>
         <tr>
             <td><?php echo $result['id'] ?></td>
-            <td><?php echo $result['daily_job_name'] ?></td>
+            <td><?php echo $result['future_plan_name'] ?></td>
             <td><?php echo $result['time_start'] ?></td>
-            <td><a href="admin_cp.php?action=manage_daily_job&query=edit&id_daily_job=<?php echo $result['id'] ?>"><i
+            <td><a href="admin_cp.php?action=manage_future_plan&query=edit&id_future_plan=<?php echo $result['id'] ?>"><i
                         id="pencil" class="fa fa-pencil"></i> Chỉnh sửa</a> <a
-                    href="admin_cp.php?action=manage_daily_job&query=show&id_daily_job=<?php echo $result['id'] ?>"
+                    href="admin_cp.php?action=manage_future_plan&query=show&id_future_plan=<?php echo $result['id'] ?>"
                     onclick="return confirm_delete(event);" class="trash"><i id="trash" class="fa fa-trash-o"></i> Xóa</a></td>
         </tr>
         <?php
@@ -187,7 +187,7 @@ if ($row_count > 0) {
 }
 ?>
 
-    <!-- Page daily job -->
+    <!-- Page future plan -->
     <?php
     if ($row_count > 0 && $row_count > $limit) {
         $page = ceil( $row_count/ $limit);
@@ -223,8 +223,8 @@ if ($row_count > 0) {
                     }
 
                     // Request name
-                    if (isset($_POST['daily_job_name']) && $_POST['daily_job_name'] != "") {
-                        $request_name = "&name=".$_POST['daily_job_name'];
+                    if (isset($_POST['future_plan_name']) && $_POST['future_plan_name'] != "") {
+                        $request_name = "&name=".$_POST['future_plan_name'];
                     } else if (isset($_GET['name']) && $_GET['name'] != "") {
                         $request_name = "&name=".$_GET['name'];
                     } else {
@@ -241,7 +241,7 @@ if ($row_count > 0) {
                     }
 
                     ?>
-                        href="admin_cp.php?action=manage_daily_job&query=search_page&page=<?php echo $i ?><?php echo $request_id ?><?php echo $request_name ?><?php echo $request_time ?>"><?php echo $i ?></a>
+                        href="admin_cp.php?action=manage_future_plan&query=search_page&page=<?php echo $i ?><?php echo $request_id ?><?php echo $request_name ?><?php echo $request_time ?>"><?php echo $i ?></a>
                 </li>
             <?php
                 }

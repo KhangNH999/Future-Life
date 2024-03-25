@@ -154,6 +154,17 @@
         </tr>
     </table>
 </form>
+
+<!-- message success download file excel -->
+<?php 
+if (isset($_POST['button-export-excel-cost'])) {
+?>
+    <div class="message_success"> Xuất dữ liệu excel thành công. <a href="admin_cp.php?action=download_file&query=show">Vui lòng nhấn vào đây để tải file</a></div>
+    <br>
+<?php
+}
+?>
+
 <?php
 if ($row_count > 0) {
 ?>
@@ -185,8 +196,8 @@ if ($row_count > 0) {
             <td><?php echo $result['cost_name'] ?></td>
             <td><?php echo number_format($result['cost'], 0, '.', ',') . ' ₫'; ?></td>
             <td><?php echo $result['date_used'] ?></td>
-            <td><a href="admin_cp.php?action=manage_cost&query=edit&id_cost=<?php echo $result['id'] ?>"><i id ="pencil" class="fa fa-pencil"></i></a> <a href="admin_cp.php?action=manage_cost&query=show&id_cost=<?php echo $result['id'] ?>" onclick="return confirm_delete(event);"><i
-            id ="trash" class="fa fa-trash-o"></i></a></td>
+            <td><a href="admin_cp.php?action=manage_cost&query=edit&id_cost=<?php echo $result['id'] ?>"><i id ="pencil" class="fa fa-pencil"></i> Chỉnh sửa</a> <a href="admin_cp.php?action=manage_cost&query=show&id_cost=<?php echo $result['id'] ?>" onclick="return confirm_delete(event);" class="trash"><i
+            id ="trash" class="fa fa-trash-o"></i> Xóa</a></td>
         </tr>
         <?php
         }

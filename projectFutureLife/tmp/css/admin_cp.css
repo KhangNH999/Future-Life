@@ -290,3 +290,110 @@ ul.list-page li:hover {
     font-size: 15px;
     border-radius: 5px;
 }
+
+/** Reponsive */
+@media all and (max-width: 480px) {
+
+    /** admin */
+    .admin_cp {
+        width: 250%;
+    }
+
+    /** nar bar */
+    .nav-bar {
+        width: 250%;
+    }
+
+    .admin_cp .wrapper .funtion_admin {
+        width: 123%;
+        margin-right: -28px;
+    }
+
+    /** menu */
+    .admin_cp .wrapper .menu_admin {
+        width: 20%;
+    }
+
+    .admin_cp .wrapper .title_admin_cp {
+        font-size: 24px;
+    }
+
+    .admin_cp .wrapper .menu_admin li a {
+        font-size: 16px;
+    }
+
+    .admin_cp .wrapper .menu_admin li {
+        height: auto;
+        line-height: normal;
+        padding: 14px 4px 12px 13px;
+    }
+
+    .admin_cp .wrapper .menu_admin li a i {
+        font-size: 16px;
+        margin-right: 4px;
+    }
+
+    /** button search */
+    .form-search tr.submit .search-data {
+        width: 31%;
+    }
+
+    /** menu login */
+    .user li:hover .sub-menu {
+        width: 165px;
+        margin-left: -12px;
+    }
+}
+/** Reponsive */
+@media all and (max-width: 1017px) {
+
+    /** admin */
+    .admin_cp {
+        width: 250%;
+    }
+
+    /** nar bar */
+    .nav-bar {
+        width: 250%;
+    }
+
+    .admin_cp .wrapper .funtion_admin {
+        width: 123%;
+        margin-right: -28px;
+    }
+
+    /** menu */
+    .admin_cp .wrapper .menu_admin {
+        width: 20%;
+    }
+
+    .admin_cp .wrapper .title_admin_cp {
+        font-size: 24px;
+    }
+
+    .admin_cp .wrapper .menu_admin li a {
+        font-size: 16px;
+    }
+
+    .admin_cp .wrapper .menu_admin li {
+        height: auto;
+        line-height: normal;
+        padding: 14px 4px 12px 13px;
+    }
+
+    .admin_cp .wrapper .menu_admin li a i {
+        font-size: 16px;
+        margin-right: 4px;
+    }
+
+    /** button search */
+    .form-search tr.submit .search-data {
+        width: 31%;
+    }
+
+    /** menu login */
+    .user li:hover .sub-menu {
+        width: 165px;
+        margin-left: -12px;
+    }
+}

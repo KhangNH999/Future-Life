@@ -10,22 +10,22 @@
 <?php 
 ob_start();
 
-class export_file_daily_job {    
+class export_file_future_plan {    
     private $database;
     // database
     public function __construct() {
         $this->database = new Database();
     }
     // export file cost
-    public function export_file($id, $daily_job_name, $time_start) {
+    public function export_file($id, $future_plan_name, $time_start) {
         $download_file = new download_file();
         // Get data
-        $query = "SELECT * FROM daily_job WHERE search_flg = 0 ";
+        $query = "SELECT * FROM future_plan WHERE search_flg = 0 ";
         if (!Empty($id)) {
             $query .= "AND id LIKE '%$id%' ";
         }
-        if (!Empty($daily_job_name)) {
-            $query .= "AND daily_job_name LIKE '%$daily_job_name%' ";
+        if (!Empty($future_plan_name)) {
+            $query .= "AND future_plan_name LIKE '%$future_plan_name%' ";
         } 
         if (!Empty($time_start)) {
             $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
@@ -39,7 +39,7 @@ class export_file_daily_job {
         $sheet = $spreadsheet->getActiveSheet();
 
         // set Title
-        $sheet = $spreadsheet->getActiveSheet()->setTitle('daily_job_list');
+        $sheet = $spreadsheet->getActiveSheet()->setTitle('future_plan_list');
 
         // rown count
         $row_count = 1;
@@ -67,8 +67,8 @@ class export_file_daily_job {
 
         //Column
         $sheet->setCellValue('A'.$row_count, 'STT');
-        $sheet->setCellValue('B'.$row_count, 'Id công việc');
-        $sheet->setCellValue('C'.$row_count, 'Tên công việc hàng ngày');
+        $sheet->setCellValue('B'.$row_count, 'Id');
+        $sheet->setCellValue('C'.$row_count, 'Tên dự định tương lai');
         $sheet->setCellValue('D'.$row_count, 'Ngày bắt đầu');
         $sheet->getColumnDimension("C")->setAutoSize(true);
         $sheet->getColumnDimension("D")->setAutoSize(true);
@@ -78,7 +78,7 @@ class export_file_daily_job {
             // set row
             $sheet->setCellValue('A'.$row_count, $number_count);
             $sheet->setCellValue('B'.$row_count, $row['id']);
-            $sheet->setCellValue('C'.$row_count, $row['daily_job_name']);
+            $sheet->setCellValue('C'.$row_count, $row['future_plan_name']);
             $sheet->setCellValue('D'.$row_count, $row['time_start']);
             // boder
             $style = $sheet->getStyle('A'.$row_count);
@@ -93,9 +93,9 @@ class export_file_daily_job {
         }
         $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
 		$writer->setOffice2003Compatibility(true);
-		$file_name = "tmp/download/excel/daily_job/"."daily_job_file".time().".xlsx";
+		$file_name = "tmp/download/excel/future_plan/"."future_plan_file".time().".xlsx";
 		$writer->save($file_name);
-        $download_file->insert_file('Danh sách những công việc hàng ngày', 1, $file_name);
+        $download_file->insert_file('Danh sách những dự định trong tương lai', 1, $file_name);
     }
 }
 ?>

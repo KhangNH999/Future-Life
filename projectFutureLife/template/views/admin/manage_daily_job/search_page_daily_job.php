@@ -115,6 +115,17 @@
         </tr>
     </table>
 </form>
+
+<!-- message success download file excel -->
+<?php 
+if (isset($_POST['button-export-excel-daily-job'])) {
+?>
+    <div class="message_success"> Xuất dữ liệu excel thành công. <a href="admin_cp.php?action=download_file&query=show">Vui lòng nhấn vào đây để tải file</a></div>
+    <br>
+<?php
+}
+?>
+
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
 <div class="button-add"><a href="admin_cp.php?action=manage_daily_job&query=add" class="button-add-form"><i class="fa fa-plus"></i> Thêm</a></div>
 <form action="" method="post">
@@ -142,9 +153,9 @@
             <td><?php echo $result['daily_job_name'] ?></td>
             <td><?php echo $result['time_start'] ?></td>
             <td><a href="admin_cp.php?action=manage_daily_job&query=edit&id_daily_job=<?php echo $result['id'] ?>"><i
-                        id="pencil" class="fa fa-pencil"></i></a> <a
+                        id="pencil" class="fa fa-pencil"></i> Chỉnh sửa</a> <a
                     href="admin_cp.php?action=manage_daily_job&query=show&id_daily_job=<?php echo $result['id'] ?>"
-                    onclick="return confirm_delete(event);"><i id="trash" class="fa fa-trash-o"></i></a></td>
+                    onclick="return confirm_delete(event);" class="trash"><i id="trash" class="fa fa-trash-o"></i> Xóa</a></td>
         </tr>
         <?php
         }

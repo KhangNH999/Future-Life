@@ -1,6 +1,7 @@
 <?php 
     require 'lib/vendor/autoload.php';
     include_once 'config/connect_db/database.php';
+    require 'actor/admin/module/download_file/download_file.php';
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
     use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     use PhpOffice\PhpSpreadsheet\Style\Font;
@@ -16,6 +17,7 @@ class export_file_cost {
     }
     // export file cost
     public function export_file($id, $cost_name, $cost, $date_used) {
+        $download_file = new download_file();
         // Get data
         $query = "SELECT * FROM cost_life WHERE search_flg = 0 ";
         if (!Empty($id)) {
@@ -104,7 +106,7 @@ class export_file_cost {
 		$writer->setOffice2003Compatibility(true);
 		$file_name = "tmp/download/excel/cost/"."cost_file".time().".xlsx";
 		$writer->save($file_name);
-		header("location:".$file_name);
+		$download_file->insert_file('Danh sách chi tiêu', 2, $file_name);
     }
 }
 ?>
