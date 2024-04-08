@@ -1,5 +1,6 @@
 <?php
-include_once 'config/connect_db/database.php'
+include_once 'config/connect_db/database.php';
+require 'actor/admin/logic/log_history_future_life.php';
 ?>
 
 <?php 
@@ -51,8 +52,10 @@ class daily_job {
     }
     // insert daily job
     public function insert_daily_job($daily_job_name, $time_start) {
+        $log_history_future_life = new log_history_future_life();
         $query = "INSERT INTO daily_job(daily_job_name, time_start) VALUES ('$daily_job_name', '$time_start')";
         $result = $this->database->insert($query);
+        $log_history_future_life->insert_log_history_future_life('Thêm công việc hàng ngày thành công', 1);
         header('Location: admin_cp.php?action=manage_daily_job&query=show');
     }
     // update daily job

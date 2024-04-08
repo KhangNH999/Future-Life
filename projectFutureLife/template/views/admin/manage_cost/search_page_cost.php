@@ -161,6 +161,7 @@ if (isset($_POST['button-export-excel-cost'])) {
     <div><button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</a></div>
 </form>
 <br>
+<br>
 <div class="manage_table">
     <table>
         <tr>

@@ -3,10 +3,14 @@ table {
     width: 100%;
 }
 
+.form-search tr td {
+    border: none;
+}
+
 .manage_table th,
 td {
-    text-align: left;
     padding: 8px;
+    border: 1px solid #dddddd;
 }
 
 .manage_table tr:nth-child(even) {
@@ -14,7 +18,7 @@ td {
 }
 
 .manage_table tr:hover {
-    background-color: #d7e0d7;
+    background-color: #dddddd;
 }
 
 .manage_table {
@@ -48,6 +52,7 @@ td {
     text-decoration: none;
     font-weight: bold;
 }
+
 .manage_table td a.trash {
     background-color: #ff9c9c;
 }
