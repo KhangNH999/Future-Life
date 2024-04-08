@@ -146,11 +146,12 @@ body {
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+    padding-bottom: 20px;
 }
 
 .admin_cp .wrapper .menu_admin li {
     width: auto;
-    height: 50px;
+    max-height: 150px;
     line-height: 50px;
     padding: 0 1em;
 }
@@ -161,10 +162,11 @@ body {
     font-weight: bold;
     display: block;
     font-size: 16.5px;
+    cursor: pointer;
 }
 
-.admin_cp .wrapper .menu_admin li:hover {
-    background: #bcbcbc;
+.admin_cp .wrapper .menu_admin .sub_menu li:hover {
+    text-decoration: underline;
 }
 
 .admin_cp .wrapper .menu_admin li a i {
@@ -172,8 +174,33 @@ body {
     margin-right: 10px;
 }
 
-.admin_cp .wrapper .menu_admin li.active {
-    background: #bcbcbc;
+.admin_cp .wrapper .menu_admin .sub_menu li.active, .admin_cp .wrapper .menu_admin .sub_menu .active a {
+    background: #bcbcbc;  
+    color: #fff;
+    border-radius: 10px;
+}
+
+.admin_cp .wrapper .menu_admin .sub_menu {
+    position: relative;
+    text-decoration: none;
+    display: none;
+}
+
+.admin_cp .wrapper .menu_admin li:hover .sub_menu {
+    display: block;
+}
+
+.admin_cp .wrapper .menu_admin li {
+    list-style: none;
+}
+
+.admin_cp .wrapper .menu_admin li ul {
+    margin: 0;
+    padding: 0;
+}
+
+.admin_cp .wrapper .menu_admin li ul li {
+    display: block;
 }
 
 /** funtion admin */
@@ -260,7 +287,7 @@ ul.list-page li:hover {
 }
 
 .form-search tr.submit .set-ml-37 {
-    margin-left: 37%;
+    margin-left: 34%;
 }
 
 .form-search tr.submit .clear-data {

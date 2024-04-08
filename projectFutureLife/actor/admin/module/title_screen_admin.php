@@ -1,39 +1,40 @@
 <?php
- // set title admin
- if(isset($_GET['action']) && $_GET['query']) {
-   $function = $_GET['action'];
-   $query = $_GET['query'];
- } else {
-   $function = '';
-   $query = '';
- }
- if ($function == 'manage_daily_job' && $query == 'show') {      // manage daily job
-   echo "Quản lý công việc hàng ngày";
- } else if ($function =='manage_daily_job' && $query == 'search') {
-   echo "Quản lý công việc hàng ngày";
- } else if ($function =='manage_daily_job' && $query == 'edit') {
-   echo "Quản lý công việc hàng ngày";
- } else if ($function =='manage_daily_job' && $query == 'add') {
-    echo "Quản lý công việc hàng ngày";
- } else if ($function =='manage_daily_job' && $query == 'search_page') {
-  echo "Quản lý công việc hàng ngày";
- } else if ($function =='manage_cost' && $query == 'show') {      // manage cost
-   echo "Quản lý chi tiêu";
- } else if ($function =='manage_cost' && $query == 'add') {
-  echo "Quản lý chi tiêu";
- } else if ($function =='manage_cost' && $query == 'edit') {
-  echo "Quản lý chi tiêu";
- } else if ($function =='manage_cost' && $query == 'search_page') {
-  echo "Quản lý chi tiêu";
- } else if ($function =='download_file' && $query == 'show') {      // download file
-  echo "Nhật ký tải xuống gần đây";
- } else if ($function =='manage_future_plan' && $query == 'show') {  // manage future plan
-  echo "Quản lý dự định tương lai";
- } else if ($function =='manage_future_plan' && $query == 'add') {
-  echo "Quản lý dự định tương lai";
- } else if ($function =='manage_future_plan' && $query == 'edit') {
-  echo "Quản lý dự định tương lai";
- } else if ($function =='manage_future_plan' && $query == 'search_page') {
-  echo "Quản lý dự định tương lai";
- }
+// Set title admin
+$titles = array(
+  'manage_daily_job' => array(
+    'show' => "Quản lý công việc hàng ngày",
+    'search' => "Quản lý công việc hàng ngày",
+    'edit' => "Quản lý công việc hàng ngày",
+    'add' => "Quản lý công việc hàng ngày",
+    'search_page' => "Quản lý công việc hàng ngày"
+  ),
+  'manage_cost' => array(
+    'show' => "Quản lý chi tiêu",
+    'add' => "Quản lý chi tiêu",
+    'edit' => "Quản lý chi tiêu",
+    'search_page' => "Quản lý chi tiêu"
+  ),
+  'download_file' => array(
+    'show' => "Nhật ký tải xuống gần đây"
+  ),
+  'manage_future_plan' => array(
+    'show' => "Quản lý dự định tương lai",
+    'add' => "Quản lý dự định tương lai",
+    'edit' => "Quản lý dự định tương lai",
+    'search_page' => "Quản lý dự định tương lai"
+  ),
+  'history_future_life' => array(
+    'show' => "Lịch sử Future Life",
+    'search_page' => "Lịch sử Future Life"
+  )
+);
+
+if (isset($_GET['action']) && isset($_GET['query'])) {
+  $function = $_GET['action'];
+  $query = $_GET['query'];
+
+  if (isset($titles[$function][$query])) {
+    echo $titles[$function][$query];
+  }
+}
 ?>
