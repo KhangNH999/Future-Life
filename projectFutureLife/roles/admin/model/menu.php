@@ -22,7 +22,9 @@ function add_color_menu($menu_number) {
     array('manage_future_plan', 'edit', array(3, 3.2)),
     array('manage_future_plan', 'search_page', array(3, 3.2)),
     array('history_future_life', 'show', array(6, 6.1)),
-    array('history_future_life', 'search_page', array(6, 6.1))
+    array('history_daily_job', 'show', array(6, 6.1)),
+    array('history_cost', 'show', array(6, 6.1)),
+    array('history_future_plan', 'show', array(6, 6.1))
   );
   foreach ($conditions as $condition) {
     if ($function == $condition[0] && $query == $condition[1] && in_array($menu_number, $condition[2])) {

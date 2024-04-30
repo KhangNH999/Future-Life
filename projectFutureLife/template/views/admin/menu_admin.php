@@ -1,4 +1,4 @@
-<?php include("actor/admin/model/menu.php"); ?>
+<?php include("roles/admin/model/menu.php"); ?>
 <li>
     <a><i class="fa fa-check-square-o"></i>Quản lý công việc hàng ngày</a>
     <ul style="<?php add_color_menu(1); ?>" class="sub_menu">

@@ -1,4 +1,4 @@
-<?php include 'actor/admin/module/manage_cost/manage_cost.php' ?>
+<?php include 'roles/admin/module/manage_cost/manage_cost.php' ?>
 <?php
   // get data cost
   if (isset($_GET['id_cost'])) {
@@ -30,6 +30,7 @@
             <input type="datetime-local" name="date_used" value="<?php echo $result['date_used'] ?>">
         </div>
         <button type="submit">Lưu thông tin</button>
+        <a class="button-back-screen" href="admin_cp.php?action=manage_cost&query=show">Trở về</a>
       </form> 
     </div>
 </div>

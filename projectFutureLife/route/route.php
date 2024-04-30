@@ -36,8 +36,12 @@ if ($_SESSION['login_admin'] == 1) {
     include("template/views/admin/download_file/download_file.php");
   } else if($function =='history_future_life' && $query == 'show') {                 // history future life
     include("template/views/admin/history_future_life/show_history_future_life.php");
-  } else if($function =='history_future_life' && $query == 'search_page') {
-    include("template/views/admin/history_future_life/search_page_history_future_life.php");
+  } else if($function =='history_daily_job' && $query == 'show') {
+    include("template/views/admin/history_future_life/all_history_future_life/history_daily_job.php");
+  } else if($function =='history_cost' && $query == 'show') {
+    include("template/views/admin/history_future_life/all_history_future_life/history_cost.php");
+  } else if($function =='history_future_plan' && $query == 'show') {
+    include("template/views/admin/history_future_life/all_history_future_life/history_future_plan.php");
   } else {
     include("template/views/admin/manage_daily_job/show_daily_job.php");
   }

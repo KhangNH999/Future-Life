@@ -55,11 +55,3 @@ function clear_input_cost() {
     cost.value = '';
     time.value = '';
 }
-
-// clear input history future life
-function clear_input_history_future_life() {
-    var from_time = document.getElementById('from_time');
-    var to_time = document.getElementById('to_time');
-    from_time.value = '';
-    to_time.value = '';
-}

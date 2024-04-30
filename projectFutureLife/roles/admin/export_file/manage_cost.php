@@ -1,7 +1,8 @@
 <?php 
     require 'lib/vendor/autoload.php';
     include_once 'config/connect_db/database.php';
-    require 'actor/admin/module/download_file/download_file.php';
+    require 'roles/admin/module/download_file/download_file.php';
+    require_once 'roles/admin/const/delete.php';
     use PhpOffice\PhpSpreadsheet\Spreadsheet;
     use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     use PhpOffice\PhpSpreadsheet\Style\Font;
@@ -19,7 +20,7 @@ class export_file_cost {
     public function export_file($id, $cost_name, $cost, $date_used) {
         $download_file = new download_file();
         // Get data
-        $query = "SELECT * FROM cost_life WHERE search_flg = 0 ";
+        $query = "SELECT * FROM cost_life WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= "AND id LIKE '%$id%' ";
         }

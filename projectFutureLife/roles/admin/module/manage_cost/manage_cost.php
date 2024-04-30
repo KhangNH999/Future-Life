@@ -1,18 +1,16 @@
 <?php
-include_once 'config/connect_db/database.php'
+include_once 'roles/admin/base/database.php';
+require 'roles/admin/logic/log_history_future_life.php';
+require 'roles/admin/const/delete.php';
 ?>
-
-<?php 
+<?php
 ob_start();
 class cost_life {
-    private $database;
     // database
-    public function __construct() {
-        $this->database = new Database();
-    }
+    use base_database;
     // data cost life
     public function show_cost($begin, $limit, $id, $cost_name, $cost, $date_used) {
-        $query = "SELECT * FROM cost_life WHERE search_flg = 0 ";
+        $query = "SELECT * FROM cost_life WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= "AND id LIKE '%$id%' ";
         }
@@ -32,7 +30,7 @@ class cost_life {
     }
     // get count daily job
     public function get_count_cost($id, $cost_name, $cost, $date_used) {
-        $query = "SELECT * FROM cost_life WHERE search_flg = 0";
+        $query = "SELECT * FROM cost_life WHERE search_flg =" . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= " AND id LIKE '%$id%'";
         }
@@ -57,7 +55,9 @@ class cost_life {
     }
     // insert cost
     public function insert_cost($cost_name, $cost, $date_used) {
+        $log_history_future_life = new log_history_future_life();
         $query = "INSERT INTO cost_life(cost_name, cost, date_used) VALUES ('$cost_name', '$cost', '$date_used')";
+        $log_history_future_life->insert_log_history_future_life($cost_name, 1, SCREEN_LOG['MANAGE_COST']);
         $result = $this->database->insert($query);
         header('Location: admin_cp.php?action=manage_cost&query=show');
     }

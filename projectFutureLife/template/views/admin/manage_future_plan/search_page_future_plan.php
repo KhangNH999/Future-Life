@@ -1,5 +1,5 @@
-<?php include 'actor/admin/module/manage_future_plan/manage_future_plan.php' ?>
-<?php include 'actor/admin/export_file/manage_future_plan.php' ?>
+<?php include 'roles/admin/module/manage_future_plan/manage_future_plan.php' ?>
+<?php include 'roles/admin/export_file/manage_future_plan.php' ?>
 <?php
     // page future plan
     $limit = 10;
@@ -100,7 +100,7 @@
     <table class="form-search">
         <tr class="input">
             <td>Id&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id_future_plan" name="id" value="<?php echo $value_id ?>"></td>
-            <td>Tên công việc&nbsp;&nbsp;<input type="text" id="future_plan_name" name="future_plan_name" value="<?php echo $value_future_plan_name ?>"></td>
+            <td>Tên dự định&nbsp;&nbsp;<input type="text" id="future_plan_name" name="future_plan_name" value="<?php echo $value_future_plan_name ?>"></td>
         </tr>
         <tr class="input">
             <td>Ngày bắt đầu&nbsp;&nbsp;<input type="datetime-local" id="time_start" name="time_start" value="<?php echo $value_time_start ?>"></td>
