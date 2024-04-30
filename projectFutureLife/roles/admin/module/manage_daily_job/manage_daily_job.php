@@ -1,19 +1,16 @@
 <?php
-include_once 'config/connect_db/database.php';
-require 'actor/admin/logic/log_history_future_life.php';
+include_once 'roles/admin/base/database.php';
+include 'roles/admin/logic/log_history_future_life.php';
+require 'roles/admin/const/delete.php';
 ?>
-
-<?php 
+<?php
 ob_start();
 class daily_job {
-    private $database;
     // database
-    public function __construct() {
-        $this->database = new Database();
-    }
+    use base_database;
     // data daily job
     public function show_daily_job($begin, $limit, $id, $daily_job_name, $time_start) {
-        $query = "SELECT * FROM daily_job WHERE search_flg = 0 ";
+        $query = "SELECT * FROM daily_job WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= "AND id LIKE '%$id%' ";
         }
@@ -30,7 +27,7 @@ class daily_job {
     }
     // get count daily job
     public function get_count_daily_job($id, $daily_job_name, $time_start) {
-        $query = "SELECT * FROM daily_job WHERE search_flg = 0";
+        $query = "SELECT * FROM daily_job WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= " AND id LIKE '%$id%'";
         }
@@ -55,7 +52,7 @@ class daily_job {
         $log_history_future_life = new log_history_future_life();
         $query = "INSERT INTO daily_job(daily_job_name, time_start) VALUES ('$daily_job_name', '$time_start')";
         $result = $this->database->insert($query);
-        $log_history_future_life->insert_log_history_future_life('Thêm công việc hàng ngày thành công', 1);
+        $log_history_future_life->insert_log_history_future_life($daily_job_name, 1, SCREEN_LOG['MANAGE_DAILY_JOB']);
         header('Location: admin_cp.php?action=manage_daily_job&query=show');
     }
     // update daily job

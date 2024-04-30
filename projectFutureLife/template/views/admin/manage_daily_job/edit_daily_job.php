@@ -1,4 +1,4 @@
-<?php include 'actor/admin/module/manage_daily_job/manage_daily_job.php' ?>
+<?php include 'roles/admin/module/manage_daily_job/manage_daily_job.php' ?>
 <?php
   // get data daily job
   if (isset($_GET['id_daily_job'])) {
@@ -27,6 +27,7 @@
             <input type="datetime-local" name="time_start" value="<?php echo $result['time_start'] ?>">
         </div>
         <button type="submit">Lưu thông tin</button>
+        <a class="button-back-screen" href="admin_cp.php?action=manage_daily_job&query=show">Trở về</a>
       </form> 
     </div>
 </div>

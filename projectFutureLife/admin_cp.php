@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="tmp/upload/brandFL.ico"/>
     <title>Future Life</title>
-    <?php include 'actor/admin/module/manage_account/manage_account.php' ?>
+    <?php include 'roles/admin/module/manage_account/manage_account.php' ?>
     <?php
     // Library css
         include 'lib/lib.php';
@@ -42,7 +42,7 @@
             </div>
             <div class="funtion_admin">
                 <div class="sub_funtion_admin">
-                <h1><i class="fa fa-desktop"></i> <?php include 'actor/admin/module/title_screen_admin.php' ?></h1>
+                <h1><i class="fa fa-desktop"></i> <?php include 'roles/admin/module/title_screen_admin.php' ?></h1>
                 <?php
                     include("route/route.php");
                 ?>

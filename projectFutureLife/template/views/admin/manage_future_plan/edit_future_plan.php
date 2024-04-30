@@ -1,4 +1,4 @@
-<?php include 'actor/admin/module/manage_future_plan/manage_future_plan.php' ?>
+<?php include 'roles/admin/module/manage_future_plan/manage_future_plan.php' ?>
 <?php
   // get data future plan
   if (isset($_GET['id_future_plan'])) {
@@ -27,6 +27,7 @@
             <input type="datetime-local" name="time_start" value="<?php echo $result['time_start'] ?>">
         </div>
         <button type="submit">Lưu thông tin</button>
+        <a class="button-back-screen" href="admin_cp.php?action=manage_future_plan&query=show">Trở về</a>
       </form> 
     </div>
 </div>

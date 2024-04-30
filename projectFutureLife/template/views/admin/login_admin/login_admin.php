@@ -1,4 +1,4 @@
-<?php include '../../../../actor/admin/module/login_admin/login_admin.php' ?>
+<?php include '../../../../roles/admin/module/login_admin/login_admin.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +9,7 @@
   <!-- css login admin -->
   <link rel="stylesheet" type="text/css" href="../../../../tmp/css/login_admin.css">
   <!-- check login admin -->
-  <script src="..\..\..\..\actor\admin\validate\check_login.js"></script>
+  <script src="..\..\..\..\roles\admin\validate\check_login.js"></script>
 </head>
 <?php
 // Login admin

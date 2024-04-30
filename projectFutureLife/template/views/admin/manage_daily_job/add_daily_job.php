@@ -1,6 +1,6 @@
-<?php include 'actor/admin/module/manage_daily_job/manage_daily_job.php' ?>
+<?php include 'roles/admin/module/manage_daily_job/manage_daily_job.php' ?>
 <!-- check check_daily_job -->
-<script src="actor\admin\validate\check_daily_job.js"></script>
+<script src="roles\admin\validate\check_daily_job.js"></script>
 <!-- add daily job -->
 <?php 
   $daily_job = new daily_job();
@@ -23,6 +23,7 @@
           <input type="datetime-local" name="time_start" value="">
       </div>
       <button type="submit">Thêm thông tin</button>
+      <a class="button-back-screen" href="admin_cp.php?action=manage_daily_job&query=show">Trở về</a>
       <p id="error-text" style="margin-top:5px; color: red; font-weight:bold"></p>
     </form> 
   </div>

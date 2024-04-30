@@ -1,5 +1,5 @@
-<?php include 'actor/admin/module/manage_daily_job/manage_daily_job.php' ?>
-<?php include 'actor/admin/export_file/manage_daily_job.php' ?>
+<?php include 'roles/admin/module/manage_daily_job/manage_daily_job.php' ?>
+<?php include 'roles/admin/export_file/manage_daily_job.php' ?>
 <?php
     // page daily job
     $limit = 10;

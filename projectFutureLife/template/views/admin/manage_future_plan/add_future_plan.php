@@ -1,6 +1,6 @@
-<?php include 'actor/admin/module/manage_future_plan/manage_future_plan.php' ?>
+<?php include 'roles/admin/module/manage_future_plan/manage_future_plan.php' ?>
 <!-- check manage_future_plan -->
-<script src="actor\admin\validate\check_future_plan.js"></script>
+<script src="roles\admin\validate\check_future_plan.js"></script>
 <!-- add future plan -->
 <?php 
   $future_plan = new future_plan();
@@ -23,6 +23,7 @@
           <input type="datetime-local" name="time_start" value="">
       </div>
       <button type="submit">Thêm thông tin</button>
+      <a class="button-back-screen" href="admin_cp.php?action=manage_future_plan&query=show">Trở về</a>
       <p id="error-text" style="margin-top:5px; color: red; font-weight:bold"></p>
     </form> 
   </div>

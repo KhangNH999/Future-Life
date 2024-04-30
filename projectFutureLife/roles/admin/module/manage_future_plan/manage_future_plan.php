@@ -1,18 +1,16 @@
 <?php
-include_once 'config/connect_db/database.php'
+include_once 'roles/admin/base/database.php';
+include 'roles/admin/logic/log_history_future_life.php';
+require 'roles/admin/const/delete.php';
 ?>
-
-<?php 
+<?php
 ob_start();
 class future_plan {
-    private $database;
     // database
-    public function __construct() {
-        $this->database = new Database();
-    }
+    use base_database;
     // data daily job
     public function show_future_plan($begin, $limit, $id, $future_plan_name, $time_start) {
-        $query = "SELECT * FROM future_plan WHERE search_flg = 0 ";
+        $query = "SELECT * FROM future_plan WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= "AND id LIKE '%$id%' ";
         }
@@ -29,7 +27,7 @@ class future_plan {
     }
     // get count future plan
     public function get_count_future_plan($id, $future_plan_name, $time_start) {
-        $query = "SELECT * FROM future_plan WHERE search_flg = 0";
+        $query = "SELECT * FROM future_plan WHERE search_flg = " . FLG_OFF . " ";
         if (!Empty($id)) {
             $query .= " AND id LIKE '%$id%'";
         }
@@ -51,7 +49,9 @@ class future_plan {
     }
     // insert future plan
     public function insert_future_plan($future_plan_name, $time_start) {
+        $log_history_future_life = new log_history_future_life();
         $query = "INSERT INTO future_plan(future_plan_name, time_start) VALUES ('$future_plan_name', '$time_start')";
+        $log_history_future_life->insert_log_history_future_life($future_plan_name, 1, SCREEN_LOG['MANAGE_FUTURE_PLAN']);
         $result = $this->database->insert($query);
         header('Location: admin_cp.php?action=manage_future_plan&query=show');
     }
