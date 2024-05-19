@@ -152,13 +152,13 @@ if (isset($_POST['button-export-excel-cost'])) {
 ?>
 
 <div class="count_records">Có <?php echo $row_count ?> kết quả tìm kiếm</div>
-<div class="button-add"><a href="admin_cp.php?action=manage_cost&query=add" class="button-add-form"><i class="fa fa-plus"></i>  Thêm</a></div>
+<div class="button-add"><a href="admin_cp.php?action=manage_cost&query=add" class="button-add-form">Thêm</a></div>
 <form action="" method="post">
     <input type="hidden" id="id_cost" name="id" value="<?php echo $value_id ?>">
     <input type="hidden" id="cost_name" name="cost_name" value="<?php echo $value_cost_name ?>">
     <input type="hidden" id="cost" name="cost" value="<?php echo $value_cost ?>">
     <input type="hidden" id="date_used" name="date_used" value="<?php echo $value_date_used ?>">
-    <div><button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</a></div>
+    <button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</button>
 </form>
 <br>
 <br>

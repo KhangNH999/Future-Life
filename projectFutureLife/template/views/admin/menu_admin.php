@@ -20,7 +20,14 @@
         <li class=<?php add_color_menu(3.2); ?>><a href="admin_cp.php?action=manage_future_plan&query=show"><i class="fa fa-arrow-circle-right"></i>Tìm kiếm dự định tương lai</a></li>
     </ul>
 </li>
-<li class=<?php add_color_menu(4); ?>><a href="#"><i class="fa fa-bar-chart"></i>Biểu đồ</a></li>
+<li>
+    <a><i class="fa fa-bar-chart"></i>Biểu đồ</a>
+    <ul style="<?php add_color_menu(4); ?>" class="sub_menu">
+        <li class=<?php add_color_menu(4.1); ?>><a href="admin_cp.php?action=manage_chart_cost&query=show"><i class="fa fa-arrow-circle-right"></i>Xem biểu đồ chi tiêu</a></li>
+        <li class=<?php add_color_menu(4.2); ?>><a href="admin_cp.php?action=manage_chart_daily_job&query=show"><i class="fa fa-arrow-circle-right"></i>Xem biểu đồ công việc</a></li>
+        <li class=<?php add_color_menu(4.3); ?>><a href="admin_cp.php?action=manage_chart_future_plan&query=show"><i class="fa fa-arrow-circle-right"></i>Xem biểu đồ kế hoạch tương lai</a></li>
+    </ul>
+</li>
 <li>
     <a><i class="fa fa-download"></i>Nhật ký tải xuống</a>
     <ul style="<?php add_color_menu(5); ?>" class="sub_menu">

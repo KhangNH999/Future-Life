@@ -67,5 +67,11 @@ class future_plan {
         $result = $this->database->delete($query);
         header('Location: admin_cp.php?action=manage_future_plan&query=show');
     }
+    //update status
+    public function update_status($id) {
+        $query = "UPDATE future_plan SET status = '1' WHERE id = '$id'";
+        $result = $this->database->update($query);
+        header('Location: admin_cp.php?action=manage_future_plan&query=show');
+    }
 }
 ?>

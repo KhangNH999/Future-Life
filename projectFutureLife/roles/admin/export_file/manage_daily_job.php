@@ -18,7 +18,7 @@ class export_file_daily_job {
         $this->database = new Database();
     }
     // export file cost
-    public function export_file($id, $daily_job_name, $time_start) {
+    public function export_file($id, $daily_job_name, $time_start_from, $time_start_to) {
         $download_file = new download_file();
         // Get data
         $query = "SELECT * FROM daily_job WHERE search_flg = " . FLG_OFF . " ";
@@ -28,9 +28,13 @@ class export_file_daily_job {
         if (!Empty($daily_job_name)) {
             $query .= "AND daily_job_name LIKE '%$daily_job_name%' ";
         } 
-        if (!Empty($time_start)) {
-            $formatted_date = date('Y-m-d H:i:s', strtotime($time_start));
-            $query .= "AND time_start = '$formatted_date' ";
+        if (!Empty($time_start_from)) {
+            $formatted_date_from = date('Y-m-d H:i:s', strtotime($time_start_from));
+            $query .= "AND time_start >= '$formatted_date_from' ";
+        }
+        if (!Empty($time_start_to)) {
+            $formatted_date_to = date('Y-m-d H:i:s', strtotime($time_start_to));
+            $query .= "AND time_start <= '$formatted_date_to' ";
         }
         $query .= " ORDER BY id DESC";
         $result = $this->database->select($query);
