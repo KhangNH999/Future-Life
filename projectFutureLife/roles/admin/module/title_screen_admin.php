@@ -25,16 +25,25 @@ $titles = array(
     'search_page' => TITLE_SCREEN['MANAGE_FUTURE_PLAN']
   ),
   'history_future_life' => array(
-    'show'        => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
+    'show' => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
   ),
   'history_daily_job' => array(
-    'show'        => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
+    'show' => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
   ),
   'history_cost' => array(
-    'show'        => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
+    'show' => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
   ),
   'history_future_plan' => array(
-    'show'        => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
+    'show' => TITLE_SCREEN['HISTORY_FUTURE_LIFE']
+  ),
+  'manage_chart_cost' => array(
+    'show' => TITLE_SCREEN['MANAGE_CHART_COST']
+  ),
+  'manage_chart_daily_job' => array(
+    'show' => TITLE_SCREEN['MANAGE_CHART_DAILY_JOB']
+  ),
+  'manage_chart_future_plan' => array(
+    'show' => TITLE_SCREEN['MANAGE_CHART_FUTURE_PLAN']
   )
 );
 

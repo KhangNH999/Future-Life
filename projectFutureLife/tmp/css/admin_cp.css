@@ -151,7 +151,7 @@ body {
 
 .admin_cp .wrapper .menu_admin li {
     width: auto;
-    max-height: 150px;
+    max-height: 240px;
     line-height: 50px;
     padding: 0 1em;
 }
@@ -430,6 +430,35 @@ a.link_back {
 
 a.link_back:hover {
     opacity: 0.8;
+}
+
+/** Manage chart */
+.chart_btn {
+    font-size: 18px;
+    background-color: aliceblue;
+    border: 1px solid #dae9f6;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: 700;
+    color: #4994d5;
+}
+.chart_btn button#updateChart {
+    text-decoration: none;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    cursor: pointer;
+}
+.chart_btn input#year {
+    height: 19px;
+    border-color: #c7c7c7;
+    font-size: 15px;
 }
 
 /** Reponsive */

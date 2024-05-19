@@ -132,7 +132,6 @@
         }
         $export = $export_file->export_file($value_id_export, $value_cost_name_export, $value_cost_export, $value_date_used_export);
     }
-
 ?>
 <form action="" method="post">
     <table class="form-search">
@@ -175,7 +174,7 @@ if ($row_count > 0) {
     <input type="hidden" id="cost_name" name="cost_name" value="<?php echo $value_cost_name ?>">
     <input type="hidden" id="cost" name="cost" value="<?php echo $value_cost ?>">
     <input type="hidden" id="date_used" name="date_used" value="<?php echo $value_date_used ?>">
-    <div><button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</a></div>
+    <button class="button-export-excel" type="submit" name="button-export-excel-cost">Xuất Excel</button>
 </form>
 <br>
 <br>

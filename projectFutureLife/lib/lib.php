@@ -8,3 +8,5 @@
 <script src="tmp\js\common_function.js"></script>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- chart js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

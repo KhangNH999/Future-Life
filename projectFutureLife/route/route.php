@@ -42,6 +42,12 @@ if ($_SESSION['login_admin'] == 1) {
     include("template/views/admin/history_future_life/all_history_future_life/history_cost.php");
   } else if($function =='history_future_plan' && $query == 'show') {
     include("template/views/admin/history_future_life/all_history_future_life/history_future_plan.php");
+  } else if($function =='manage_chart_cost' && $query == 'show') {                   // manage chart cost
+    include("template/views/admin/manage_chart/show_chart_cost.php");
+  } else if($function =='manage_chart_daily_job' && $query == 'show') {              // manage chart daily job
+    include("template/views/admin/manage_chart/show_chart_daily_job.php");
+  } else if($function =='manage_chart_future_plan' && $query == 'show') {             // manage chart future life
+    include("template/views/admin/manage_chart/show_chart_future_plan.php");
   } else {
     include("template/views/admin/manage_daily_job/show_daily_job.php");
   }

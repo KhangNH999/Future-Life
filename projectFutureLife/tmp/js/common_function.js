@@ -1,9 +1,9 @@
 // confirm delete
-function confirm_delete (e) {
+function confirm_delete(e) {
     if (confirm('Bạn có muốn xóa dữ liệu này?')) {
         return true;
     } else {
-        e.stopPropagation(); 
+        e.stopPropagation();
         e.preventDefault();
     }
 }
@@ -28,10 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function clear_input_daily_job() {
     var id = document.getElementById('id_daily_job');
     var name = document.getElementById('daily_job_name');
-    var time = document.getElementById('time_start');
+    var time_from = document.getElementById('time_start_from');
+    var time_to = document.getElementById('time_start_to');
     id.value = '';
     name.value = '';
-    time.value = '';
+    time_from.value = '';
+    time_to.value = '';
 }
 
 // clear input future plan
@@ -55,3 +57,14 @@ function clear_input_cost() {
     cost.value = '';
     time.value = '';
 }
+
+// Gets all checkboxes in the column when the checkbox in the card is selected
+document.addEventListener("DOMContentLoaded", function () {
+    const headerCheckbox = document.querySelector("th input[type='checkbox']");
+    const checkboxes = document.querySelectorAll("td input[type='checkbox']");
+    headerCheckbox.addEventListener("change", function () {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = headerCheckbox.checked;
+        });
+    });
+});
